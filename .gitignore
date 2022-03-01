@@ -58,3 +58,22 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+
+# VSCode hidden files
+*.vscode/
+
+# pytest cache
+*.pytest_cache/
+
+# Ignore PyPi build files.
+dist/
+build/
+
+# Python virtual environment
+venv/
+.mypy_cache/
+
+# Code coverage report
+.coverage
+coverage.xml
+/htmlcov/
