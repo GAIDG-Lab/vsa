@@ -4,6 +4,8 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
+using UnityEngine.AI;
+
 
 public class VSAgent : Agent
 {
@@ -61,19 +63,39 @@ public class VSAgent : Agent
         if (GameObject.ReferenceEquals(other.gameObject, targetTransform))
         {
             Debug.Log("Hit goal");
+            SetReward(+1f);
             EndEpisode();
         }
 
         if (other.CompareTag("Wall"))
         {
             Debug.Log("Hit wall");
+            SetReward(-0.05f);
+        }
+        if (other.CompareTag("Agent"))
+        {
+            Debug.Log("Hit each other");
+            SetReward(-0.025f);
         }
     }
 
     public override void OnEpisodeBegin()
     {
         base.OnEpisodeBegin();
+        Vector3 randomPos = new Vector3(Random.Range(-9f, 9f), 0, Random.Range(-9f, 9f));
+        NavMeshHit hit;
 
-        targetTransform.transform.position = new Vector3(Random.Range(-9f, 9f), targetTransform.transform.position.y, Random.Range(-9f, 9f));
+        Vector3 randomGoalPosition;
+        while (!NavMesh.SamplePosition(randomPos, out hit, 3.0f, NavMesh.AllAreas))
+        {
+            randomPos = new Vector3(Random.Range(-9f, 9f), 0, Random.Range(-9f, 9f));
+            Debug.Log("Have to re-roll for goal position");
+        }
+
+        randomGoalPosition = hit.position;
+        randomGoalPosition.y = 0.1f;
+
+        targetTransform.transform.position = randomGoalPosition;
+        //Debug.Log("My goal position is at: " + targetTransform.transform.position);
     }
 }

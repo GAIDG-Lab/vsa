@@ -2,22 +2,22 @@
     "People": {
         "checkpoints": [
             {
-                "steps": 2364,
-                "file_path": "results\\ppo\\People\\People-2364.onnx",
-                "reward": 0.0,
-                "creation_time": 1646195775.71001,
+                "steps": 6341,
+                "file_path": "results\\ppo\\People\\People-6341.onnx",
+                "reward": 1.0,
+                "creation_time": 1646376385.172486,
                 "auxillary_file_paths": [
-                    "results\\ppo\\People\\People-2364.pt"
+                    "results\\ppo\\People\\People-6341.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 2364,
+            "steps": 6341,
             "file_path": "results\\ppo\\People.onnx",
-            "reward": 0.0,
-            "creation_time": 1646195775.71001,
+            "reward": 1.0,
+            "creation_time": 1646376385.172486,
             "auxillary_file_paths": [
-                "results\\ppo\\People\\People-2364.pt"
+                "results\\ppo\\People\\People-6341.pt"
             ]
         }
     },
