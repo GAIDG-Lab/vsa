@@ -38,6 +38,8 @@ public class VSAgent : Agent
         transform.position += new Vector3(moveX, 0, moveZ) * Time.deltaTime * velocity;
         Vector3 upVec = transform.up;
         transform.Rotate(upVec, rotation * 30 * Time.deltaTime);
+
+        AddReward(-1f / MaxStep);
     }
 
 
