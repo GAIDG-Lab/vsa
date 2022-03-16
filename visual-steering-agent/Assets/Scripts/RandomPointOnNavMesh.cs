@@ -26,16 +26,21 @@ public class RandomPointOnNavMesh : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < numberOfAgent; i++) {
-            //Instantiate pair 
+
+    }
+
+    public void SpawnAgents(int enviromentSize) {
+        for (int i = 0; i < numberOfAgent; i++)
+        {
+
             GameObject newPair = Instantiate(testObject, Vector3.zero, Quaternion.identity);
             GameObject visualSteeringAgent = newPair.transform.GetChild(0).gameObject;
 
 
-            //visualSteeringAgent.transform.position = new Vector3(0f, 0.1f, -6f);
-            //goal.transform.position = new Vector3(0f, 0.1f, 7f);
+            float floatSize = enviromentSize * 1f;
 
-            Vector3 randomPos = new Vector3(Random.Range(-9f, 9f), 0, Random.Range(-9f, 9f));
+            Vector3 randomPos = new Vector3(Random.Range(-floatSize, floatSize), 0, Random.Range(-floatSize, floatSize));
+
             NavMeshHit hit;
 
             Vector3 randomAgentPosition;
@@ -43,7 +48,7 @@ public class RandomPointOnNavMesh : MonoBehaviour
             //Find nearest NavMesh position for Agent, if don't find any, re-randomize and try again
             while (!NavMesh.SamplePosition(randomPos, out hit, 3.0f, NavMesh.AllAreas))
             {
-                randomPos = new Vector3(Random.Range(-9f, 9f), 0, Random.Range(-9f, 9f));
+                randomPos = new Vector3(Random.Range(-floatSize, floatSize), 0, Random.Range(-floatSize, floatSize));
                 Debug.Log("Have to re-roll for agent position");
             }
 
@@ -53,5 +58,4 @@ public class RandomPointOnNavMesh : MonoBehaviour
             visualSteeringAgent.transform.position = randomAgentPosition;
         }
     }
-
 }

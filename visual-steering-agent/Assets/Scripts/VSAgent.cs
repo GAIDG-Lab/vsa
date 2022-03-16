@@ -11,10 +11,14 @@ public class VSAgent : Agent
 {
     [SerializeField] private GameObject targetTransform;
 
+    private float episodeBeginDistance;
+
+    [SerializeField] private GameObject enviromentBuilder;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -39,7 +43,19 @@ public class VSAgent : Agent
         Vector3 upVec = transform.up;
         transform.Rotate(upVec, rotation * 30 * Time.deltaTime);
 
-        AddReward(-1f / MaxStep);
+        AddReward(-3f / MaxStep);
+
+        float currentDistance = Vector3.Distance(targetTransform.transform.position, transform.position);
+        float distanceReward = ExponentialRerwardFunction(currentDistance / episodeBeginDistance);
+
+        AddReward(distanceReward / MaxStep);
+
+        Vector3 directionToGoal = targetTransform.transform.position - transform.position;
+        float offAngle = Vector3.Angle(directionToGoal, transform.forward);
+        float rotationReward = ExponentialRerwardFunction(offAngle / 180f);
+
+        AddReward(rotationReward / MaxStep);
+
     }
 
 
@@ -50,7 +66,12 @@ public class VSAgent : Agent
         float distanceToGoal = Vector3.Distance(targetTransform.transform.position, transform.position);
 
         sensor.AddObservation(distanceToGoal);
-        sensor.AddObservation(targetTransform.transform.position - transform.position);
+
+
+        Vector3 directionToGoal = targetTransform.transform.position - transform.position;
+        sensor.AddObservation(directionToGoal.x/distanceToGoal);
+        sensor.AddObservation(directionToGoal.z/distanceToGoal);
+
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -58,6 +79,17 @@ public class VSAgent : Agent
         ActionSegment<float> continousActions = actionsOut.ContinuousActions;
         continousActions[0] = Input.GetAxisRaw("Horizontal");
         continousActions[1] = Input.GetAxisRaw("Vertical");
+
+        //float currentDistance = Vector3.Distance(targetTransform.transform.position, transform.position);
+        //Debug.Log(currentDistance/episodeBeginDistance);
+        //Debug.Log("Exponential reward is:" + ExponentialRerwardFunction(currentDistance / episodeBeginDistance));
+
+        //Vector3 directionToGoal = targetTransform.transform.position - transform.position;
+        //Debug.Log(directionToGoal / currentDistance);
+        //float angle = Vector3.Angle(directionToGoal, transform.forward);
+        //Debug.Log(angle);
+        //Debug.Log("Exponential reward is:" + ExponentialRerwardFunction(angle / 180f));
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -84,13 +116,17 @@ public class VSAgent : Agent
     public override void OnEpisodeBegin()
     {
         base.OnEpisodeBegin();
-        Vector3 randomPos = new Vector3(Random.Range(-9f, 9f), 0, Random.Range(-9f, 9f));
+
+        var mapBuilder = enviromentBuilder.gameObject.GetComponent<BoundaryControl>();
+        Vector3 randomPos = new Vector3(Random.Range(-mapBuilder.enviromentSize, mapBuilder.enviromentSize), 0, Random.Range(-mapBuilder.enviromentSize, mapBuilder.enviromentSize));
+
         NavMeshHit hit;
 
         Vector3 randomGoalPosition;
         while (!NavMesh.SamplePosition(randomPos, out hit, 3.0f, NavMesh.AllAreas))
         {
-            randomPos = new Vector3(Random.Range(-9f, 9f), 0, Random.Range(-9f, 9f));
+
+            randomPos = new Vector3(Random.Range(-mapBuilder.enviromentSize, mapBuilder.enviromentSize), 0, Random.Range(-mapBuilder.enviromentSize, mapBuilder.enviromentSize));
             Debug.Log("Have to re-roll for goal position");
         }
 
@@ -98,6 +134,13 @@ public class VSAgent : Agent
         randomGoalPosition.y = 0.1f;
 
         targetTransform.transform.position = randomGoalPosition;
-        //Debug.Log("My goal position is at: " + targetTransform.transform.position);
+
+        episodeBeginDistance = Vector3.Distance(targetTransform.transform.position, transform.position);
+    }
+
+    private float ExponentialRerwardFunction(float x)
+    {
+        return Mathf.Exp(-x * 2f);
     }
 }
+
