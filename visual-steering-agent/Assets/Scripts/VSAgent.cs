@@ -43,18 +43,18 @@ public class VSAgent : Agent
         Vector3 upVec = transform.up;
         transform.Rotate(upVec, rotation * 30 * Time.deltaTime);
 
-        AddReward(-0.005f);
+        AddReward(-0.005f * 3);
 
         float currentDistance = Vector3.Distance(targetTransform.transform.position, transform.position);
         float distanceReward = ExponentialRerwardFunction(currentDistance/4f);
 
-        AddReward(distanceReward/400);
+        AddReward(distanceReward * 3 / 200);
 
         Vector3 directionToGoal = targetTransform.transform.position - transform.position;
         float offAngle = Vector3.Angle(directionToGoal, transform.forward);
         float rotationReward = ExponentialRerwardFunction(offAngle / 180f);
 
-        AddReward(rotationReward/400);
+        AddReward(rotationReward * 3 / 200);
 
     }
 
