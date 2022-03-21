@@ -21,23 +21,23 @@ public class BoundaryControl : MonoBehaviour
 
     private void Awake()
     {
-        NorthWall.transform.position = new Vector3(NorthWall.transform.position.x, NorthWall.transform.position.y, enviromentSize);
+/*        NorthWall.transform.position = new Vector3(NorthWall.transform.position.x, NorthWall.transform.position.y, enviromentSize);
         SouthWall.transform.position = new Vector3(SouthWall.transform.position.x, SouthWall.transform.position.y, enviromentSize * -1.0f);
         EastWall.transform.position = new Vector3(enviromentSize, EastWall.transform.position.y, EastWall.transform.position.z);
         WestWall.transform.position = new Vector3(enviromentSize * -1.0f, WestWall.transform.position.y, WestWall.transform.position.z);
 
-        GenerateObstacle();
+        GenerateObstacle();*/
 
     }
     void Start()
     {
 
-        for (int i = 0; i < navMeshSurfaces.Length; i++) {
+/*        for (int i = 0; i < navMeshSurfaces.Length; i++) {
             navMeshSurfaces[i].BuildNavMesh();
         }
         var agentSpawner = spawner.gameObject.GetComponent<RandomPointOnNavMesh>();
 
-        agentSpawner.SpawnAgents(enviromentSize);
+        agentSpawner.SpawnAgents(enviromentSize);*/
 
     }
 

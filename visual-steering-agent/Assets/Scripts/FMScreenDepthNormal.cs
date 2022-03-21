@@ -15,6 +15,11 @@ public class FMScreenDepthNormal : MonoBehaviour
     {
         Cam = this.GetComponent<Camera>();
         Cam.depthTextureMode = Cam.depthTextureMode | DepthTextureMode.Depth;
+
+        if (Mat == null)
+        {
+            Mat = new Material(Shader.Find("Hidden/FMShader_ScreenDepthNormal"));
+        }
     }
 
     // Update is called once per frame

@@ -43,18 +43,18 @@ public class VSAgent : Agent
         Vector3 upVec = transform.up;
         transform.Rotate(upVec, rotation * 30 * Time.deltaTime);
 
-        AddReward(-3f / MaxStep);
+        AddReward(-0.005f);
 
         float currentDistance = Vector3.Distance(targetTransform.transform.position, transform.position);
-        float distanceReward = ExponentialRerwardFunction(currentDistance / episodeBeginDistance);
+        float distanceReward = ExponentialRerwardFunction(currentDistance/4f);
 
-        AddReward(distanceReward / MaxStep);
+        AddReward(distanceReward/400);
 
         Vector3 directionToGoal = targetTransform.transform.position - transform.position;
         float offAngle = Vector3.Angle(directionToGoal, transform.forward);
         float rotationReward = ExponentialRerwardFunction(offAngle / 180f);
 
-        AddReward(rotationReward / MaxStep);
+        AddReward(rotationReward/400);
 
     }
 
@@ -98,7 +98,29 @@ public class VSAgent : Agent
         {
             Debug.Log("Hit goal");
             SetReward(+1f);
-            EndEpisode();
+            var mapBuilder = enviromentBuilder.gameObject.GetComponent<MapBuilder>();
+
+            float floatSize = mapBuilder.enviromentSize * 1f - 1f;
+
+
+            Vector3 randomGoalPos = new Vector3(Random.Range(-floatSize, floatSize), 0, Random.Range(-floatSize, floatSize));
+
+            NavMeshHit goalHit;
+            Vector3 randomGoalPosition;
+
+            //Find nearest NavMesh position for Goal, if don't find any, re-randomize and try again
+            while (!NavMesh.SamplePosition(randomGoalPos, out goalHit, 2.0f, NavMesh.AllAreas))
+            {
+                randomGoalPos = new Vector3(Random.Range(-floatSize, floatSize), 0, Random.Range(-floatSize, floatSize));
+                Debug.Log("Have to re-roll for agent position");
+            }
+
+            randomGoalPosition = goalHit.position;
+            randomGoalPosition.y = 0.1f;
+
+            targetTransform.transform.position = randomGoalPosition;
+
+            //EndEpisode();
         }
 
         if (other.CompareTag("Wall"))
@@ -117,8 +139,11 @@ public class VSAgent : Agent
     {
         base.OnEpisodeBegin();
 
-        var mapBuilder = enviromentBuilder.gameObject.GetComponent<BoundaryControl>();
-        Vector3 randomPos = new Vector3(Random.Range(-mapBuilder.enviromentSize, mapBuilder.enviromentSize), 0, Random.Range(-mapBuilder.enviromentSize, mapBuilder.enviromentSize));
+        var mapBuilder = enviromentBuilder.gameObject.GetComponent<MapBuilder>();
+
+        mapBuilder.SendBeginSignal();
+
+        /*Vector3 randomPos = new Vector3(Random.Range(-mapBuilder.enviromentSize, mapBuilder.enviromentSize), 0, Random.Range(-mapBuilder.enviromentSize, mapBuilder.enviromentSize));
 
         NavMeshHit hit;
 
@@ -135,7 +160,7 @@ public class VSAgent : Agent
 
         targetTransform.transform.position = randomGoalPosition;
 
-        episodeBeginDistance = Vector3.Distance(targetTransform.transform.position, transform.position);
+        episodeBeginDistance = Vector3.Distance(targetTransform.transform.position, transform.position);*/
     }
 
     private float ExponentialRerwardFunction(float x)
