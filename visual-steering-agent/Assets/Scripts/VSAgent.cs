@@ -15,6 +15,39 @@ public class VSAgent : Agent
 
     [SerializeField] private GameObject enviromentBuilder;
 
+
+    //Foward Vector toggle:
+
+
+    //enviromentalScale: because of collision system is set up, when a collision happen, 
+    //a collision is registered thrice, thus a variable to scale down reward happen on collision
+
+    private float enviromentalScale = 1 / 3f;
+
+    //Scale variables:
+    // Wg: goalReachingWeight
+    // Ww: wallCollisionWeight
+    // Wca: agentCollisionWeight
+    // Wd: distanceEncouragementWeight
+    // Wh: rotationEncouragementWeight
+
+
+    public float goalReachingWeight = 0.9f;
+    public float wallCollisionWeight = 0.025f;
+    public float agentCollisionWeight = 0.025f;
+    public float distanceEncouragementWeight = 0.025f;
+    public float rotationEncouragementWeight = 0.025f;
+
+
+    private LineRenderer lr;
+
+
+
+    private void Awake()
+    {
+        lr = GetComponent<LineRenderer>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +57,15 @@ public class VSAgent : Agent
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 forward = transform.TransformDirection(Vector3.forward) * 1.2f;
+        //Debug.DrawLine(transform.position, transform.position + forward, Color.blue);
+        lr.SetPosition(0, transform.position);
+        lr.SetPosition(1, transform.position + forward);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
     {
         base.OnActionReceived(actions);
-        //Debug.Log(actions.DiscreteActions[0]);
 
         float moveX = actions.ContinuousActions[0];
         float moveZ = actions.ContinuousActions[1];
@@ -43,18 +78,16 @@ public class VSAgent : Agent
         Vector3 upVec = transform.up;
         transform.Rotate(upVec, rotation * 30 * Time.deltaTime);
 
-        AddReward(-0.005f * 3);
-
         float currentDistance = Vector3.Distance(targetTransform.transform.position, transform.position);
         float distanceReward = ExponentialRerwardFunction(currentDistance/4f);
 
-        AddReward(distanceReward * 3 / 200);
+        AddReward(distanceReward * distanceEncouragementWeight);
 
         Vector3 directionToGoal = targetTransform.transform.position - transform.position;
         float offAngle = Vector3.Angle(directionToGoal, transform.forward);
         float rotationReward = ExponentialRerwardFunction(offAngle / 180f);
 
-        AddReward(rotationReward * 3 / 200);
+        AddReward(rotationReward * rotationEncouragementWeight);
 
     }
 
@@ -97,7 +130,7 @@ public class VSAgent : Agent
         if (GameObject.ReferenceEquals(other.gameObject, targetTransform))
         {
             Debug.Log("Hit goal");
-            SetReward(+1f);
+            SetReward(+1f * enviromentalScale * goalReachingWeight);
             var mapBuilder = enviromentBuilder.gameObject.GetComponent<MapBuilder>();
 
             float floatSize = mapBuilder.enviromentSize * 1f - 1f;
@@ -126,12 +159,12 @@ public class VSAgent : Agent
         if (other.CompareTag("Wall"))
         {
             Debug.Log("Hit wall");
-            SetReward(-0.05f);
+            SetReward(-1f * enviromentalScale * wallCollisionWeight);
         }
         if (other.CompareTag("Agent"))
         {
             Debug.Log("Hit each other");
-            SetReward(-0.025f);
+            SetReward(-1f * enviromentalScale * agentCollisionWeight);
         }
     }
 
@@ -141,7 +174,9 @@ public class VSAgent : Agent
 
         var mapBuilder = enviromentBuilder.gameObject.GetComponent<MapBuilder>();
 
-        mapBuilder.SendBeginSignal();
+        if (!mapBuilder.isHeuristic) {
+            mapBuilder.SendBeginSignal();
+        }
 
         /*Vector3 randomPos = new Vector3(Random.Range(-mapBuilder.enviromentSize, mapBuilder.enviromentSize), 0, Random.Range(-mapBuilder.enviromentSize, mapBuilder.enviromentSize));
 

@@ -28,6 +28,8 @@ public class MapBuilder : MonoBehaviour
 
     private int numberOfBeginAgents = 0;
 
+    public bool isHeuristic = false;
+
 
     private void Awake()
     {
@@ -66,15 +68,17 @@ public class MapBuilder : MonoBehaviour
 
     void GenerateObstacle()
     {
-        for (int x = -enviromentSize + 1; x <= enviromentSize; x += 2)
-        {
-            for (int y = -enviromentSize + 1; y <= enviromentSize; y += 2)
+        if (!isHeuristic) {
+            for (int x = -enviromentSize + 1; x <= enviromentSize; x += 2)
             {
-                if (Random.value > 0.7f)
+                for (int y = -enviromentSize + 1; y <= enviromentSize; y += 2)
                 {
-                    Vector3 pos = new Vector3(x, 1f, y);
-                    GameObject cubeObstacle = Instantiate(obstacle, pos, Quaternion.identity, transform);
-                    obstacleList.Add(cubeObstacle);
+                    if (Random.value > 0.7f)
+                    {
+                        Vector3 pos = new Vector3(x, 1f, y);
+                        GameObject cubeObstacle = Instantiate(obstacle, pos, Quaternion.identity, transform);
+                        obstacleList.Add(cubeObstacle);
+                    }
                 }
             }
         }
