@@ -69,11 +69,11 @@ public class MapBuilder : MonoBehaviour
     void GenerateObstacle()
     {
         if (!isHeuristic) {
-            for (int x = -enviromentSize + 1; x <= enviromentSize; x += 2)
+            for (int x = -enviromentSize + 1; x <= enviromentSize - 1; x += 1)
             {
-                for (int y = -enviromentSize + 1; y <= enviromentSize; y += 2)
+                for (int y = -enviromentSize + 1; y <= enviromentSize - 1; y += 1)
                 {
-                    if (Random.value > 0.7f)
+                    if (Random.value > 0.8f)
                     {
                         Vector3 pos = new Vector3(x, 1f, y);
                         GameObject cubeObstacle = Instantiate(obstacle, pos, Quaternion.identity, transform);
