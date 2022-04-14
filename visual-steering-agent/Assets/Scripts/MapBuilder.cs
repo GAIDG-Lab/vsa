@@ -73,7 +73,7 @@ public class MapBuilder : MonoBehaviour
             {
                 for (int y = -enviromentSize + 1; y <= enviromentSize - 1; y += 1)
                 {
-                    if (Random.value > 0.8f)
+                    if (Random.value > 0.84f)
                     {
                         Vector3 pos = new Vector3(x, 1f, y);
                         GameObject cubeObstacle = Instantiate(obstacle, pos, Quaternion.identity, transform);

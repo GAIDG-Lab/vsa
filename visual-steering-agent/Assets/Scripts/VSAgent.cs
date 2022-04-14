@@ -76,7 +76,7 @@ public class VSAgent : Agent
 
         transform.position += new Vector3(moveX, 0, moveZ) * Time.deltaTime * velocity;
         Vector3 upVec = transform.up;
-        transform.Rotate(upVec, rotation * 30 * Time.deltaTime);
+        transform.Rotate(upVec, rotation * 90 * Time.deltaTime);
 
         float currentDistance = Vector3.Distance(targetTransform.transform.position, transform.position);
         float distanceReward = ExponentialRerwardFunction(currentDistance/4f);
