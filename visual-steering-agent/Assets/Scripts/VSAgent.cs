@@ -41,6 +41,8 @@ public class VSAgent : Agent
 
     private LineRenderer lr;
 
+    private Vector3 previousMove;
+
 
 
     private void Awake()
@@ -78,8 +80,11 @@ public class VSAgent : Agent
         Vector3 upVec = transform.up;
         transform.Rotate(upVec, rotation * 90 * Time.deltaTime);
 
+        previousMove = new Vector3(moveX, 0, moveZ);
+
         float currentDistance = Vector3.Distance(targetTransform.transform.position, transform.position);
-        float distanceReward = ExponentialRerwardFunction(currentDistance/4f);
+        float distanceReward = ExponentialRerwardFunction(currentDistance);
+
 
         AddReward(distanceReward * distanceEncouragementWeight);
 
@@ -102,9 +107,18 @@ public class VSAgent : Agent
 
 
         Vector3 directionToGoal = targetTransform.transform.position - transform.position;
-        sensor.AddObservation(directionToGoal.x/distanceToGoal);
-        sensor.AddObservation(directionToGoal.z/distanceToGoal);
+        sensor.AddObservation(directionToGoal.normalized.x);
+        sensor.AddObservation(directionToGoal.normalized.z);
 
+
+        //Add forward Vector
+        sensor.AddObservation(transform.forward.x);
+        sensor.AddObservation(transform.forward.z);
+
+
+        //Add last step Vector
+        sensor.AddObservation(previousMove.normalized.x);
+        sensor.AddObservation(previousMove.normalized.z);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -200,7 +214,9 @@ public class VSAgent : Agent
 
     private float ExponentialRerwardFunction(float x)
     {
-        return Mathf.Exp(-x * 2f);
+        return Mathf.Exp(-x);
+
+        //e^(-x)
     }
 }
 

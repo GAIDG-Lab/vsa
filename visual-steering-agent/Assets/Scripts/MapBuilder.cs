@@ -107,7 +107,7 @@ public class MapBuilder : MonoBehaviour
             GameObject visualSteeringAgent = newPair.transform.GetChild(0).gameObject;
 
 
-            float floatSize = enviromentSize * 1f - 1f;
+            float floatSize = (float) enviromentSize * 1f - 1f;
 
             Vector3 randomPos = new Vector3(Random.Range(-floatSize, floatSize), 0, Random.Range(-floatSize, floatSize));
 

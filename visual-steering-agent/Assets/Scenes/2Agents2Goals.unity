@@ -667,7 +667,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 96f2bda1eeb767a4d9a97681782a96f0, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -690,8 +690,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 1583494595}
   m_SensorName: CameraSensor
-  m_Width: 240
-  m_Height: 135
+  m_Width: 112
+  m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
   m_ObservationStacks: 1
@@ -1265,7 +1265,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 96f2bda1eeb767a4d9a97681782a96f0, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -1288,8 +1288,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 1437548712}
   m_SensorName: CameraSensor
-  m_Width: 240
-  m_Height: 135
+  m_Width: 112
+  m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
   m_ObservationStacks: 1
