@@ -16,6 +16,8 @@ public class VSAgent : Agent
     [SerializeField] private GameObject enviromentBuilder;
 
 
+    public bool isTesting = false;
+
     //Foward Vector toggle:
 
 
@@ -143,29 +145,36 @@ public class VSAgent : Agent
     {
         if (GameObject.ReferenceEquals(other.gameObject, targetTransform))
         {
-            Debug.Log("Hit goal");
-            SetReward(+1f * enviromentalScale * goalReachingWeight);
-            var mapBuilder = enviromentBuilder.gameObject.GetComponent<MapBuilder>();
-
-            float floatSize = mapBuilder.enviromentSize * 1f - 1f;
-
-
-            Vector3 randomGoalPos = new Vector3(Random.Range(-floatSize, floatSize), 0, Random.Range(-floatSize, floatSize));
-
-            NavMeshHit goalHit;
-            Vector3 randomGoalPosition;
-
-            //Find nearest NavMesh position for Goal, if don't find any, re-randomize and try again
-            while (!NavMesh.SamplePosition(randomGoalPos, out goalHit, 2.0f, NavMesh.AllAreas))
+            if (!isTesting)
             {
-                randomGoalPos = new Vector3(Random.Range(-floatSize, floatSize), 0, Random.Range(-floatSize, floatSize));
-                Debug.Log("Have to re-roll for agent position");
+                Debug.Log("Hit goal");
+                SetReward(+1f * enviromentalScale * goalReachingWeight);
+                var mapBuilder = enviromentBuilder.gameObject.GetComponent<MapBuilder>();
+
+                float floatSize = mapBuilder.enviromentSize * 1f - 1f;
+
+
+                Vector3 randomGoalPos = new Vector3(Random.Range(-floatSize, floatSize), 0, Random.Range(-floatSize, floatSize));
+
+                NavMeshHit goalHit;
+                Vector3 randomGoalPosition;
+
+                //Find nearest NavMesh position for Goal, if don't find any, re-randomize and try again
+                while (!NavMesh.SamplePosition(randomGoalPos, out goalHit, 2.0f, NavMesh.AllAreas))
+                {
+                    randomGoalPos = new Vector3(Random.Range(-floatSize, floatSize), 0, Random.Range(-floatSize, floatSize));
+                    Debug.Log("Have to re-roll for agent position");
+                }
+
+                randomGoalPosition = goalHit.position;
+                randomGoalPosition.y = 0.1f;
+
+                targetTransform.transform.position = randomGoalPosition;
+            }
+            else {
+                transform.gameObject.SetActive(false);
             }
 
-            randomGoalPosition = goalHit.position;
-            randomGoalPosition.y = 0.1f;
-
-            targetTransform.transform.position = randomGoalPosition;
 
             //EndEpisode();
         }
