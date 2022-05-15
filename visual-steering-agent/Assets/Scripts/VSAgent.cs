@@ -11,8 +11,6 @@ public class VSAgent : Agent
 {
     [SerializeField] private GameObject targetTransform;
 
-    private float episodeBeginDistance;
-
     [SerializeField] private GameObject enviromentBuilder;
 
 
@@ -21,8 +19,10 @@ public class VSAgent : Agent
     //Foward Vector toggle:
 
 
-    //enviromentalScale: because of collision system is set up, when a collision happen, 
-    //a collision is registered thrice, thus a variable to scale down reward happen on collision
+    //enviromentalScale: because of collision system is set up (each object has 2 colliders), 
+    //when a collision happens, 
+    //collision trigger function is triggered thrice, thus a variable to scale down reward happen on collision
+
 
     private float enviromentalScale = 1 / 3f;
 
@@ -43,7 +43,22 @@ public class VSAgent : Agent
 
     private LineRenderer lr;
 
+    // variable to store movement from previous action recived
     private Vector3 previousMove;
+
+
+    // Maximum rotation angle in 1 second
+
+    private float maximumRotationAngle = 180f;
+
+    // Record the number of step the agent took
+    private int numberOfStep = 0;
+
+    // Record the distance the agent traveled
+    private float distanceTraveled = 0.0f;
+
+    // Record time 
+    private float timeCounter = 0.0f;
 
 
 
@@ -65,6 +80,7 @@ public class VSAgent : Agent
         //Debug.DrawLine(transform.position, transform.position + forward, Color.blue);
         lr.SetPosition(0, transform.position);
         lr.SetPosition(1, transform.position + forward);
+        timeCounter += Time.deltaTime;
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -78,11 +94,15 @@ public class VSAgent : Agent
 
         float velocity = 4.0f;
 
+        Vector3 currentPosition = transform.position;
+
         transform.position += new Vector3(moveX, 0, moveZ) * Time.deltaTime * velocity;
         Vector3 upVec = transform.up;
-        transform.Rotate(upVec, rotation * 90 * Time.deltaTime);
+        transform.Rotate(upVec, rotation * maximumRotationAngle * Time.deltaTime);
 
         previousMove = new Vector3(moveX, 0, moveZ);
+
+        distanceTraveled += Vector3.Distance(currentPosition, transform.position);
 
         float currentDistance = Vector3.Distance(targetTransform.transform.position, transform.position);
         float distanceReward = ExponentialRerwardFunction(currentDistance);
@@ -95,6 +115,8 @@ public class VSAgent : Agent
         float rotationReward = ExponentialRerwardFunction(offAngle / 180f);
 
         AddReward(rotationReward * rotationEncouragementWeight);
+
+        numberOfStep++;
 
     }
 
@@ -145,13 +167,20 @@ public class VSAgent : Agent
     {
         if (GameObject.ReferenceEquals(other.gameObject, targetTransform))
         {
+            Debug.Log("Hit goal");
+
+            Debug.Log("Number of steps taken: " + numberOfStep);
+
+            Debug.Log("Total distance traveled: " + distanceTraveled);
+
+            Debug.Log("Completion time: " + timeCounter);
+
             if (!isTesting)
             {
-                Debug.Log("Hit goal");
                 SetReward(+1f * enviromentalScale * goalReachingWeight);
                 var mapBuilder = enviromentBuilder.gameObject.GetComponent<MapBuilder>();
 
-                float floatSize = mapBuilder.enviromentSize * 1f - 1f;
+                float floatSize = (float) mapBuilder.enviromentSize - 1f;
 
 
                 Vector3 randomGoalPos = new Vector3(Random.Range(-floatSize, floatSize), 0, Random.Range(-floatSize, floatSize));
@@ -175,6 +204,9 @@ public class VSAgent : Agent
                 transform.gameObject.SetActive(false);
             }
 
+            numberOfStep = 0;
+            distanceTraveled = 0.0f;
+            timeCounter = 0.0f;
 
             //EndEpisode();
         }

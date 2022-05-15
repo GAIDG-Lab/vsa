@@ -1123,6 +1123,7 @@ MonoBehaviour:
   MaxStep: 7000
   targetTransform: {fileID: 1951314614}
   enviromentBuilder: {fileID: 1798958328}
+  isTesting: 0
   goalReachingWeight: 0.9
   wallCollisionWeight: 0.025
   agentCollisionWeight: 0.025
@@ -1313,8 +1314,8 @@ MonoBehaviour:
   obstacle: {fileID: 5758258868714586521, guid: 61c48f92875d8bf4b84070577b621a64, type: 3}
   spawnPair: {fileID: 1850035199}
   navMeshSurface: {fileID: 1983522652}
-  enviromentSize: 20
-  numberOfAgents: 10
+  enviromentSize: 40
+  numberOfAgents: 20
   isHeuristic: 0
 --- !u!4 &1798958330
 Transform:

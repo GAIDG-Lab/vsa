@@ -30,13 +30,15 @@ public class MapBuilder : MonoBehaviour
 
     public bool isHeuristic = false;
 
+    // chance not to spawn an obstacle on a enviroment square unit
+    private float obstacleSpawnChance = 0.84f; 
 
     private void Awake()
     {
         NorthWall.transform.position = new Vector3(NorthWall.transform.position.x, NorthWall.transform.position.y, enviromentSize);
-        SouthWall.transform.position = new Vector3(SouthWall.transform.position.x, SouthWall.transform.position.y, enviromentSize * -1.0f);
+        SouthWall.transform.position = new Vector3(SouthWall.transform.position.x, SouthWall.transform.position.y, -enviromentSize);
         EastWall.transform.position = new Vector3(enviromentSize, EastWall.transform.position.y, EastWall.transform.position.z);
-        WestWall.transform.position = new Vector3(enviromentSize * -1.0f, WestWall.transform.position.y, WestWall.transform.position.z);
+        WestWall.transform.position = new Vector3(-enviromentSize, WestWall.transform.position.y, WestWall.transform.position.z);
 
         GenerateObstacle();
 
@@ -45,8 +47,10 @@ public class MapBuilder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Build obstacles
         navMeshSurface.BuildNavMesh();
 
+        // Spawn Agent for the first time
         SpawnAgents();
 
         pairList.Add(spawnPair);
@@ -69,11 +73,14 @@ public class MapBuilder : MonoBehaviour
     void GenerateObstacle()
     {
         if (!isHeuristic) {
+
+            // Decrease spawn coordinates by 1 to avoid spawning overlap with or outside of the wall
+
             for (int x = -enviromentSize + 1; x <= enviromentSize - 1; x += 1)
             {
                 for (int y = -enviromentSize + 1; y <= enviromentSize - 1; y += 1)
                 {
-                    if (Random.value > 0.84f)
+                    if (Random.value > obstacleSpawnChance)
                     {
                         Vector3 pos = new Vector3(x, 1f, y);
                         GameObject cubeObstacle = Instantiate(obstacle, pos, Quaternion.identity, transform);
@@ -106,8 +113,8 @@ public class MapBuilder : MonoBehaviour
             GameObject newPair = Instantiate(spawnPair, Vector3.zero, Quaternion.identity);
             GameObject visualSteeringAgent = newPair.transform.GetChild(0).gameObject;
 
-
-            float floatSize = (float) enviromentSize * 1f - 1f;
+            // Reduce by 1 to prevent spawning overlap with or outside of the walls 
+            float floatSize = (float) enviromentSize - 1f;
 
             Vector3 randomPos = new Vector3(Random.Range(-floatSize, floatSize), 0, Random.Range(-floatSize, floatSize));
 
@@ -173,7 +180,8 @@ public class MapBuilder : MonoBehaviour
             GameObject agent = pair.transform.GetChild(0).gameObject;
             GameObject goal = pair.transform.GetChild(1).gameObject;
 
-            float floatSize = enviromentSize * 1f - 1f;
+            // Reduce by 1 to prevent spawning overlap with or outside of the walls 
+            float floatSize = (float) enviromentSize - 1f;
 
             Vector3 randomAgentVec = new Vector3(Random.Range(-floatSize, floatSize), 0, Random.Range(-floatSize, floatSize));
             Vector3 randomGoalVec = new Vector3(Random.Range(-floatSize, floatSize), 0, Random.Range(-floatSize, floatSize));

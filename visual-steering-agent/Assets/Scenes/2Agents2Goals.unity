@@ -640,6 +640,7 @@ MonoBehaviour:
   MaxStep: 7000
   targetTransform: {fileID: 718501595}
   enviromentBuilder: {fileID: 832322809}
+  isTesting: 1
   goalReachingWeight: 0.9
   wallCollisionWeight: 0.025
   agentCollisionWeight: 0.025
@@ -1238,6 +1239,7 @@ MonoBehaviour:
   MaxStep: 7000
   targetTransform: {fileID: 206227617}
   enviromentBuilder: {fileID: 832322809}
+  isTesting: 1
   goalReachingWeight: 0.9
   wallCollisionWeight: 0.025
   agentCollisionWeight: 0.025

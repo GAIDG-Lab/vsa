@@ -47,6 +47,7 @@ Shader "Hidden/FMShader_ScreenDepthNormal"
 
                 testDepth = Linear01Depth(testDepth);
                 return testDepth;
+                //return 0;
             }
             ENDCG
         }

@@ -8,8 +8,10 @@ public class SpawnAgentCircle : MonoBehaviour
     [SerializeField] private GameObject spawnPair;
 
     public float radius = 10f;
-    public int amountToSpawn = 10; 
+    public int amountToSpawn = 10;
 
+    // Offset variable to spawn goal behind an agents
+    private float goalPositionOffset = 2.2f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,7 @@ public class SpawnAgentCircle : MonoBehaviour
 
         GameObject baseAgentGoal = spawnPair.transform.GetChild(1).gameObject;
 
-        Vector3 baseGoalPosition = baseNewPos + 2.2f * baseLookDirection;
+        Vector3 baseGoalPosition = baseNewPos + goalPositionOffset * baseLookDirection;
 
         baseAgentGoal.transform.position = baseGoalPosition;
 
