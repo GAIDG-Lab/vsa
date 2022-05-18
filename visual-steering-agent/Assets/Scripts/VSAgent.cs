@@ -177,10 +177,12 @@ public class VSAgent : Agent
 
             if (!isTesting)
             {
+
                 SetReward(+1f * enviromentalScale * goalReachingWeight);
                 var mapBuilder = enviromentBuilder.gameObject.GetComponent<MapBuilder>();
 
-                float floatSize = (float) mapBuilder.enviromentSize - 1f;
+                //float floatSize = (float) mapBuilder.enviromentSize - 1f;
+                float floatSize = 7f;
 
 
                 Vector3 randomGoalPos = new Vector3(Random.Range(-floatSize, floatSize), 0, Random.Range(-floatSize, floatSize));
