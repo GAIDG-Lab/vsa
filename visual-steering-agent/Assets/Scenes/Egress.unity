@@ -637,7 +637,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47891342}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.5, y: 1, z: 0}
+  m_LocalPosition: {x: -27, y: 1, z: 0}
   m_LocalScale: {x: 50, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1349621097}
@@ -1036,7 +1036,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!114 &179620646
 MonoBehaviour:
@@ -1051,7 +1051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -1060,7 +1060,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -1583,7 +1583,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!114 &267446923
 MonoBehaviour:
@@ -1598,7 +1598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -1607,7 +1607,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -2533,7 +2533,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!114 &421561731
 MonoBehaviour:
@@ -2548,7 +2548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -2557,7 +2557,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -2991,7 +2991,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!114 &447591760
 MonoBehaviour:
@@ -3006,7 +3006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -3015,7 +3015,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -3749,7 +3749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -3758,7 +3758,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -3785,7 +3785,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!96 &499760503
 TrailRenderer:
@@ -4488,7 +4488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -4497,7 +4497,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -4524,7 +4524,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!96 &573026610
 TrailRenderer:
@@ -5806,7 +5806,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!114 &823667640
 MonoBehaviour:
@@ -5821,7 +5821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -5830,7 +5830,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -6143,7 +6143,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!114 &873569632
 MonoBehaviour:
@@ -6158,7 +6158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -6167,7 +6167,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -7138,7 +7138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -7147,7 +7147,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -7174,7 +7174,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!120 &1048076144
 LineRenderer:
@@ -7475,7 +7475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -7484,7 +7484,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -7511,7 +7511,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!96 &1067072963
 TrailRenderer:
@@ -8009,7 +8009,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!114 &1085632492
 MonoBehaviour:
@@ -8024,7 +8024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -8033,7 +8033,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -8504,7 +8504,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!114 &1120563642
 MonoBehaviour:
@@ -8519,7 +8519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -8528,7 +8528,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -9013,7 +9013,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!114 &1178788314
 MonoBehaviour:
@@ -9028,7 +9028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -9037,7 +9037,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -9702,7 +9702,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243282495}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.5, y: 1, z: 0}
+  m_LocalPosition: {x: 27, y: 1, z: 0}
   m_LocalScale: {x: 50, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1349621097}
@@ -10306,7 +10306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -10315,7 +10315,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -10342,7 +10342,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!96 &1316893069
 TrailRenderer:
@@ -10764,7 +10764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -10773,7 +10773,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -10800,7 +10800,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!120 &1321929616
 LineRenderer:
@@ -11310,7 +11310,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!114 &1332877389
 MonoBehaviour:
@@ -11325,7 +11325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -11334,7 +11334,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -12396,7 +12396,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!114 &1483329926
 MonoBehaviour:
@@ -12411,7 +12411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -12420,7 +12420,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -13238,7 +13238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -13247,7 +13247,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -13274,7 +13274,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!120 &1588025679
 LineRenderer:
@@ -13728,7 +13728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -13737,7 +13737,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -13764,7 +13764,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!120 &1603498112
 LineRenderer:
@@ -14300,7 +14300,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!114 &1715451031
 MonoBehaviour:
@@ -14315,7 +14315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -14324,7 +14324,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -15211,7 +15211,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!114 &1844444604
 MonoBehaviour:
@@ -15226,7 +15226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -15235,7 +15235,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -15702,7 +15702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -15711,7 +15711,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -15738,7 +15738,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!120 &1850446317
 LineRenderer:
@@ -16624,7 +16624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -16633,7 +16633,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People
@@ -16660,7 +16660,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!120 &2025381911
 LineRenderer:
@@ -17477,7 +17477,7 @@ MonoBehaviour:
   m_Height: 63
   m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!114 &2114230131
 MonoBehaviour:
@@ -17492,7 +17492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 3
+    VectorObservationSize: 7
     NumStackedVectorObservations: 4
     m_ActionSpec:
       m_NumContinuousActions: 3
@@ -17501,7 +17501,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: bb9b1cc0ecf811c4f9a1ae82840f687c, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 2
   m_BehaviorName: People

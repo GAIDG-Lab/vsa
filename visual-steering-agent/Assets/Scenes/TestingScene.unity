@@ -909,7 +909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400154, guid: bdd7a03fd93bf2d4cb6babd63ceabee8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400154, guid: bdd7a03fd93bf2d4cb6babd63ceabee8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -977,11 +977,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 150288515}
   m_SensorName: CameraSensor
-  m_Width: 240
-  m_Height: 135
-  m_Grayscale: 0
+  m_Width: 112
+  m_Height: 63
+  m_Grayscale: 1
   m_ObservationType: 0
-  m_ObservationStacks: 1
+  m_ObservationStacks: 4
   m_Compression: 1
 --- !u!114 &1226806469
 MonoBehaviour:
@@ -1005,9 +1005,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 32459fb7551e5d741a857eddc159642c, type: 3}
   m_InferenceDevice: 0
-  m_BehaviorType: 0
+  m_BehaviorType: 2
   m_BehaviorName: People
   TeamId: 0
   m_UseChildSensors: 1

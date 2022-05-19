@@ -34,11 +34,11 @@ public class VSAgent : Agent
     // Wh: rotationEncouragementWeight
 
 
-    public float goalReachingWeight = 0.9f;
-    public float wallCollisionWeight = 0.025f;
-    public float agentCollisionWeight = 0.025f;
-    public float distanceEncouragementWeight = 0.025f;
-    public float rotationEncouragementWeight = 0.025f;
+    public float goalReachingWeight = 20f;
+    public float wallCollisionWeight = 0.1f;
+    public float agentCollisionWeight = 0.1f;
+    public float distanceEncouragementWeight = 0.05f;
+    public float rotationEncouragementWeight = 0f;
 
 
     private LineRenderer lr;
@@ -49,7 +49,7 @@ public class VSAgent : Agent
 
     // Maximum rotation angle in 1 second
 
-    private float maximumRotationAngle = 180f;
+    private float maximumRotationAngle = 600f;
 
     // Record the number of step the agent took
     private int numberOfStep = 0;
@@ -261,5 +261,7 @@ public class VSAgent : Agent
 
         //e^(-x)
     }
+
+
 }
 
