@@ -79,7 +79,9 @@ public class VSAgent : Agent
         Vector3 forward = transform.TransformDirection(Vector3.forward) * 1.2f;
         //Debug.DrawLine(transform.position, transform.position + forward, Color.blue);
         lr.SetPosition(0, transform.position);
-        lr.SetPosition(1, transform.position + forward);
+        lr.SetPosition(1, transform.position + previousMove);
+        lr.SetWidth(0.3f, 0);
+
         timeCounter += Time.deltaTime;
     }
 
@@ -220,7 +222,7 @@ public class VSAgent : Agent
         }
         if (other.CompareTag("Agent"))
         {
-            Debug.Log("Hit each other");
+            //Debug.Log("Hit each other");
             SetReward(-1f * enviromentalScale * agentCollisionWeight);
         }
     }
